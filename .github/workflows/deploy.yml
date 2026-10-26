@@ -38,17 +38,17 @@ jobs:
         uses: hashicorp/setup-terraform@v3
 
       - name: Terraform Init
-        run: terraform -chdir=terraform init
+        run: terraform init
 
       - name: Terraform Format
-        run: terraform -chdir=terraform fmt -check -recursive
+        run: terraform fmt -check -recursive
 
       - name: Terraform Validate
-        run: terraform -chdir=terraform validate
+        run: terraform validate
 
       - name: Terraform Plan
-        run: terraform -chdir=terraform plan -out=tfplan
+        run: terraform plan -out=tfplan
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main'
-        run: terraform -chdir=terraform apply -auto-approve tfplan
+        run: terraform apply -auto-approve tfplan
